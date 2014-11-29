@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css" media="all">
       * { margin: 0; padding: 0; }
-      main { max-width: 600px; padding: 2rem; margin: 2rem auto 0; color: #333; }
+      main { max-width: 600px; padding: 2rem; margin: 1rem auto 0; color: #333; }
       html { font-family: "Helvetica Neue"; }
       h1, p { line-height: 1.5; margin-bottom: 1rem; }
       h1 { font-weight: 600; }
@@ -19,7 +19,7 @@
   <body>
     <main>
       <h1>Airbnb Bookmarklet</h1>
-      <p>This bookmarklet will update the Airbnb site to display only monthly prices. It assumes three roommates splitting costs evenly and rounds up to the nearest dollar.</p>
+      <p>This bookmarklet will update the prices on the Airbnb site to display monthly prices per person assuming three roommates splitting costs evenly and rounds up to the nearest dollar.</p>
       <p>Drag the link below to your bookmarks bar. Once on the Airbnb site, click the bookmarklet to update pricing.</p>
       <p><a href='javascript:(function(e){if(window.bookmarkletPricing!==true){function%20t(e,t){var%20n,r;if(t==="monthly"){r=Math.ceil(e/3)}else%20if(t==="nightly"){r=Math.ceil(e*31/3)}return%20r}var%20n=e(".price-amount");var%20r=e("#price_amount");n.each(function(){var%20n=e(this);var%20r=n.text();var%20i=t(r,"nightly");n.text(i+"/person")});r.each(function(){var%20n=e(this);var%20r;var%20i=e("#per_night");var%20s=e("#per_month");var%20o=e("#payment-period-container");if(i.is(":visible")){r=t(n.text().substring(1),"nightly");i.text("Per%20Person");n.text("$"+r)}else{r=t(n.text(),"monthly");s.text("Per%20Person");n.text("$"+r)}});alert("Pricing%20updated!");window.bookmarkletPricing=true}else{alert("Price%20has%20already%20been%20updated.")}})(jQuery);'>Price Per Person</a></p>
       <small>
